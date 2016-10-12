@@ -21,9 +21,21 @@
     }
 }
 
++ (void)initialize{
+    UIBarButtonItem *item = [UIBarButtonItem appearance];
+
+    //设置可用状态
+    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:14];
+    NSLog(@"设置了字体，请注意观察右上角的文字在切换界面时的变化");
+    [item setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"是" style:UIBarButtonItemStylePlain target:nil action:nil];
+
     // Do any additional setup after loading the view, typically from a nib.
     [self configureView];
 }
